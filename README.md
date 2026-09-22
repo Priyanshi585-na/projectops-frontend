@@ -10,10 +10,6 @@ npm install
 npm run dev
 ```
 
-Opens at http://localhost:5173. Everything works right now against mock data
-in `src/data/mockData.js`, so the whole team can see a working UI before the
-backend is ready.
-
 ## Structure
 
 ```
@@ -31,29 +27,7 @@ src/
     Budget.jsx        spend by category
     Knowledge.jsx      open Q&A / what-if
     RiskCenter.jsx      full list of predictive signals
-  data/
-    mockData.js    swap this for real API calls
 ```
-
-## Wiring up the real backend
-
-Two places are the actual integration points, both already marked with
-comments in the code:
-
-1. **`src/components/AskBar.jsx`** — `askOrchestrator(query)`. Replace the
-   mock logic with a `fetch` to your orchestrator's endpoint. It should
-   return which agent answered (`agentKey`: one of `task`, `budget`,
-   `knowledge`, `risk`) and the answer text, so the UI can show the right
-   badge.
-
-2. **`src/components/AssignConfirmCard.jsx`** — `handleConfirm()`. Replace
-   with a `fetch` to your task agent's assign endpoint. Only call it after
-   the user clicks "Confirm and assign" — don't send Slack/email/Discord
-   notifications on a suggestion alone.
-
-Everywhere else (Budget, Risk center, Tasks list) just swap the imports from
-`mockData.js` for real API calls or a small data-fetching hook per page —
-the components themselves don't need to change shape.
 
 ## Design tokens
 
