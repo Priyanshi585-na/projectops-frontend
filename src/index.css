@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #3B4FA0;
+  color: white;
+}
+
+:focus-visible {
+  outline: 2px solid #3B4FA0;
+  outline-offset: 2px;
+}
